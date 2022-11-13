@@ -1,0 +1,25 @@
+<main>
+  <div
+    class='backend-error'
+    *ngIf='backendErrorMessage$ | async'>
+    <app-backend-error-message
+      [backendErrorMessage]='backendErrorMessage$ | async'
+    ></app-backend-error-message>
+  </div>
+  <app-toolbar [boardName]='boardName$ | async'></app-toolbar>
+  <div class='container board'>
+    <app-board-list
+      *ngFor='let list of lists$ | async'
+      [list]='list'
+      [tasks$]='getTasks(list._id)'
+    ></app-board-list>
+    <app-task-modal
+      *ngIf='isTaskModalOpened$ | async'
+      [isEditMode]='isEditMode$ | async'
+      [currentList]='currentList$ | async'
+      [currentTask]='currentTask$ | async'
+    ></app-task-modal>
+    <app-archive-button></app-archive-button>
+  </div>
+  <router-outlet></router-outlet>
+</main>

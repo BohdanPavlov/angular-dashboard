@@ -1,0 +1,42 @@
+<div
+  class='backdrop'
+  (click)='onModalClose()'></div>
+<form
+  class='modal'
+  (ngSubmit)='onSubmit()'
+  [formGroup]='taskModalForm'>
+  <div class='name-block'>
+    <label for='task-name'>{{isEditMode ? 'Edit' : null}} Task Name</label>
+    <input
+      type='text'
+      id='task-name'
+      formControlName='name'
+    >
+    <span
+      *ngIf="taskModalForm.get('name')?.errors?.['required'] && taskModalForm.get('name')?.touched">
+      This field is required!</span>
+    <span
+      *ngIf="taskModalForm.get('name')?.value?.length > 15">
+      Max length is 15 symbols!</span>
+    <div
+      class='modal-controls'
+      [ngStyle]='isEditMode ? {justifyContent: "space-between"} : {justifyContent: "center"}'
+    >
+      <button
+        class='modal-controls__button modal-controls__button_edit'
+        type='submit'
+        [disabled]='!taskModalForm.valid'
+      >
+        {{isEditMode ? 'Edit' : 'Add'}} Task
+      </button>
+      <button
+        class='modal-controls__button modal-controls__button_archive'
+        type='button'
+        *ngIf='isEditMode'
+        (click)='onArchiveTask()'
+      >
+        Archive
+      </button>
+    </div>
+  </div>
+</form>

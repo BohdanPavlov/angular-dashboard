@@ -1,0 +1,28 @@
+<li
+  class='task'
+  #draggable
+  draggable='false'
+>
+  <div class='task__name'>{{task.name}}</div>
+  <div
+    class='task-controls'
+    *ngIf='task.listId'
+  >
+    <button
+      type='button'
+      class='task-controls__button task-controls__button_edit'
+      (click)='onOpenEditTaskModal()'
+    ></button>
+    <button
+      type='button'
+      class='task-controls__button task-controls__button_delete'
+      (click)='onDeleteTask()'
+    ></button>
+  </div>
+  <button
+    *ngIf='task.listId === null'
+    type='button'
+    class='task-controls__button task-controls__button_delete'
+    (click)='onDeleteTaskFromArchive()'
+  ></button>
+</li>

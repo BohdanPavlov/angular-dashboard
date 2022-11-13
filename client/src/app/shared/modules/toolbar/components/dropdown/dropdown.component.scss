@@ -1,0 +1,14 @@
+.dropdown {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 150px;
+  z-index: 2;
+
+  &__item {
+    background-color: #56d243;
+  }
+}

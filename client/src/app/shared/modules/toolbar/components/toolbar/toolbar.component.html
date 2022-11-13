@@ -1,0 +1,34 @@
+<div class='toolbar'>
+  <div class='container toolbar__container'>
+    <h1 class='toolbar__title'>{{boardName ? boardName : 'Dashboard'}}</h1>
+    <nav class='toolbar__nav'>
+      <div class='nav'>
+        <input
+          type='text'
+          class='nav__filter'
+          (keyup)='onFilter()'
+          [(ngModel)]='filterInput'
+          placeholder='You can filter here...'>
+        <div
+          class='nav__item'
+          (click)='onToggleDropdown($event)'
+        > ASC
+          <app-dropdown
+            *ngIf="(sortMode$ | async) === 'ASC'"
+            [boardName]='boardName'
+            [sortMode]='sortMode$ | async'
+          ></app-dropdown>
+        </div>
+        <div
+          class='nav__item'
+          (click)='onToggleDropdown($event)'
+        > DESC
+          <app-dropdown
+            *ngIf="(sortMode$ | async) === 'DESC'"
+            [boardName]='boardName'
+          ></app-dropdown>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

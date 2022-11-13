@@ -1,0 +1,40 @@
+<div class='auth'>
+  <div class='container auth-container'>
+    <div class='auth-field'>
+      <h2 class='auth-field__title'>{{(isLoginMode$ | async) ? 'Login' : 'SignUp'}}</h2>
+      <app-backend-error-message
+        *ngIf='backendErrorMessage$ | async'
+        [backendErrorMessage]='backendErrorMessage$ | async'
+      ></app-backend-error-message>
+      <form class='auth-form' [formGroup]='form' (ngSubmit)='onSubmit()'>
+        <fieldset class='auth-form__wrapper'>
+          <input
+            class='auth-form__input'
+            type='text'
+            placeholder='Username'
+            formControlName='username'
+          >
+          <input
+            class='auth-form__input'
+            type='password'
+            placeholder='Password'
+            formControlName='password'
+          >
+          <div class='auth-form__buttons'>
+            <button
+              type='button'
+              class='auth-form__button auth-form__button_toggle'
+              (click)='onToggleAuthMode()'
+            >Switch to {{(isLoginMode$ | async) ? 'Sing Up' : 'Login'}}</button>
+            <button
+              type='submit'
+              class='auth-form__button'
+              [disabled]='form.invalid || (isSubmitting$ | async)'
+            >{{(isLoginMode$ | async) ? 'Login' : 'Sign Up'}}
+            </button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

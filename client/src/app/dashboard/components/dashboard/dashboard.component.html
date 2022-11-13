@@ -1,0 +1,11 @@
+<div>
+  <app-toolbar></app-toolbar>
+  <div class='container dashboard'>
+    <app-add-board></app-add-board>
+    <app-board-card
+      *ngFor='let board of boards$ | async'
+      [board]='board'
+    ></app-board-card>
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div
+  class='board-card'
+  (click)='onBoardSelected()'
+>
+  <h3 class='board-card__name'>{{board.name}}</h3>
+  <div class='board-card__tasks'>
+    <p>T: {{board.lists[0].tasks.length}}</p>
+    <p>I: {{board.lists[1].tasks.length}}</p>
+    <p>D: {{board.lists[2].tasks.length}}</p>
+  </div>
+  <p
+    class='board-card__description'
+  >
+    {{board.description}}
+  </p>
+  <p class='board-card__date'>{{board.createdAt | date}}</p>
+  <div class='controls'>
+    <button
+      class='controls__button controls__button_edit'
+      type='button'
+      (click)='onEditBoard($event)'
+    ></button>
+    <button
+      class='controls__button controls__button_delete'
+      type='button'
+      (click)='onDeleteBoard($event)'
+    ></button>
+  </div>
+</div>

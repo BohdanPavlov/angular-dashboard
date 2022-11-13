@@ -1,0 +1,12 @@
+<div
+  class='backdrop'
+  (click)='onCloseArchive()'
+></div>
+<div class='modal'>
+  <h2 class='modal__title'>Archive</h2>
+  <app-board-task
+    *ngFor='let task of archivedTasks$ | async'
+    [task]='task'
+  >
+  </app-board-task>
+</div>

@@ -1,0 +1,63 @@
+.board-card {
+  min-height: 170px;
+  background-color: #a7fda0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid black;
+  box-shadow: 1px 1px 5px black;
+
+  & * {
+    margin: 0;
+  }
+
+  &__tasks {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    font-size: 14px;
+  }
+
+  &__name {
+    width: 60%;
+  }
+
+  &__date {
+    font-style: italic;
+  }
+
+  .controls {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    display: flex;
+    gap: 7px;
+
+    &__button {
+      background-color: transparent;
+      background-size: cover;
+      border: none;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+
+      &_edit {
+        background-image: url("~src/assets/icons/edit-board.png");
+      }
+
+      &_delete {
+        background-image: url("~src/assets/icons/delete-board.png");
+      }
+    }
+
+    &__delete {
+      background-color: #ff4141;
+    }
+  }
+}
+

@@ -1,0 +1,23 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__username {
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  &__button {
+    width: 120px;
+    height: 40px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &_log-out {
+      background-color: #f55252;
+      color: #ffffff;
+    }
+  }
+}

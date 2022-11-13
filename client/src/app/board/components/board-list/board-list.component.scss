@@ -1,0 +1,39 @@
+.board-list {
+  width: 300px;
+  position: relative;
+
+  &__title {
+    text-align: center;
+  }
+}
+
+.list {
+  background-color: #e1e1e1;
+  padding: 10px;
+
+  &__color-picker {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+  }
+
+  &__button {
+    width: 100%;
+    font-size: 24px;
+    background-color: #c77d91;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  &-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+  }
+}

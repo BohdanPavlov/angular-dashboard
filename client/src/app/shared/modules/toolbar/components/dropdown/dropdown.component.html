@@ -1,0 +1,15 @@
+<div class='dropdown'>
+  <a
+    class='dropdown__item'
+    (click)='onSort("name")'
+  >By name of {{boardName ? 'task' : 'board'}}</a>
+  <a
+    class='dropdown__item'
+    (click)='onSort("createdAt")'
+  >By date of creation</a>
+  <a
+    class='dropdown__item'
+    *ngIf='!boardName'
+    (click)='onSort("amountOfTasks")'
+  >By number of tasks</a>
+</div>

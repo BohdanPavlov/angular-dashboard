@@ -1,0 +1,47 @@
+<div
+  class='backdrop'
+  (click)='onModalClose()'
+></div>
+<form
+  [formGroup]='modalForm'
+  (ngSubmit)='onSubmit()'
+  class='modal'>
+  <div class='name-block'>
+    <label for='name'>{{currentBoard ? 'Edit' : null}} Board Name</label>
+    <input
+      type='text'
+      id='name'
+      formControlName='name'>
+    <span
+      *ngIf="modalForm.get('name')?.value?.length > 15">
+      Max length is 15 symbols!</span>
+    <span
+      *ngIf="modalForm.get('name')?.errors?.['required'] && modalForm.get('name')?.touched">
+      This field is required!</span>
+    <span
+      *ngIf="modalForm.get('name')?.errors?.['nameIsForbidden'] && modalForm.get('name')?.touched">
+      This name is forbidden!</span>
+  </div>
+  <div class='name-block'>
+    <label for='description'>Board Description</label>
+    <textarea
+      cols='41'
+      rows='3'
+      type='text'
+      id='description'
+      formControlName='description'>
+    </textarea>
+    <span
+      *ngIf="modalForm.get('description')?.value?.length > 50">
+      Max length is 50 symbols!</span>
+    <div class='modal-controls'>
+      <button
+        class='modal-controls__button modal-controls__button_edit'
+        type='submit'
+        [disabled]='modalForm.invalid'
+      >{{currentBoard ? 'Edit' : 'Add'}} Board
+      </button>
+    </div>
+  </div>
+</form>
+

@@ -1,0 +1,133 @@
+/* You can add global styles to this file, and also import other style files */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 20;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 20vh;
+  left: 35vw;
+  width: 30vw;
+  padding: 20px 10px;
+  z-index: 50;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+}
+
+.name-block {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+
+  label {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  input {
+    font-size: 24px;
+    padding: 5px 15px;
+    text-align: center;
+
+    &.ng-invalid.ng-touched {
+      border: 2px solid red;
+    }
+  }
+
+  .modal-controls {
+    display: flex;
+    justify-content: center;
+
+    &__button {
+      width: 150px;
+      height: 50px;
+      border: 1px solid black;
+      border-radius: 5px;
+
+      &_edit {
+        background-color: #5be05b;
+      }
+
+      &_archive {
+        color: #fff;
+        background-color: #d53e3e;
+      }
+    }
+  }
+
+  textarea {
+    width: 100%;
+    padding: 10px;
+    resize: none;
+
+    &.ng-invalid.ng-touched {
+      border: 2px solid red;
+    }
+  }
+
+  span {
+    color: red;
+  }
+}
+
+button:active {
+  box-shadow: inset 0 0 5px #000;
+}

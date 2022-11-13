@@ -1,0 +1,10 @@
+.board {
+  display: flex;
+  justify-content: space-between;
+}
+.backend-error {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #d99292;
+}

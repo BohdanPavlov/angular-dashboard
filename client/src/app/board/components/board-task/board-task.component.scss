@@ -1,0 +1,44 @@
+.task {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 5px 10px;
+  background-color: #97e125;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &__name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &-controls {
+    display: flex;
+    gap: 5px;
+
+    &__button {
+      background-color: transparent;
+      background-size: cover;
+      border: none;
+      width: 30px;
+      cursor: pointer;
+
+      &_edit {
+        background-image: url("~src/assets/icons/edit.png");
+      }
+
+      &_delete {
+        background-image: url("~src/assets/icons/delete.png");
+      }
+    }
+  }
+}
+
+.dragged {
+  position: fixed;
+  width: 300px;
+  z-index: 2;
+}

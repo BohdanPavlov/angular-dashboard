@@ -1,0 +1,15 @@
+<nav>
+  <div class="container top-bar">
+    <div
+      class="top-bar__username"
+      routerLink='/'
+    >
+      Hi, {{(currentUser$ | async).user.username}}
+    </div>
+    <button
+      type="button"
+      class="top-bar__button top-bar__button_log-out"
+      (click)="onLogout()"
+    >Log Out</button>
+  </div>
+</nav>

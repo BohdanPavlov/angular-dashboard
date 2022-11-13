@@ -1,0 +1,25 @@
+<div class='board-list'>
+  <h3 class='board-list__title'>{{list.name}}</h3>
+  <div
+    class='list'
+    #$list
+    [ngStyle]='{backgroundColor}'
+  >
+    <input
+      class='list__color-picker'
+      type='color'
+      [(ngModel)]='backgroundColor'>
+    <button
+      type='button'
+      class='list__button'
+      (click)='onOpenAddTaskModal()'
+    >+
+    </button>
+    <ul class='list-items'>
+      <app-board-task
+        *ngFor='let task of tasks$ | async'
+        [task]='task'
+      ></app-board-task>
+    </ul>
+  </div>
+</div>
